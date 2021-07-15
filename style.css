@@ -1,0 +1,36 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    --grid-col: 10;
+    --grid-height: 600px;
+    height: var(--grid-height);
+    width: var(--grid-height);
+    display: grid;
+    grid-template-columns: repeat(var(--grid-col), calc(var(--grid-height) / var(--grid-col)));
+}
+
+.black{
+    height: calc(var(--grid-height) / var(--grid-col));
+    width: calc(var(--grid-height) / var(--grid-col));
+    background-color: black;
+    border: 1px solid grey;
+}
+
+.white {
+    height: calc(var(--grid-height) / var(--grid-col));
+    width: calc(var(--grid-height) / var(--grid-col));
+    background-color: white;
+    border: 1px solid grey;
+}
