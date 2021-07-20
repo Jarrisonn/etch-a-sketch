@@ -26,8 +26,14 @@ body{
     height: calc(var(--grid-height) / var(--grid-col));
     width: calc(var(--grid-height) / var(--grid-col));
     background-color: black;
+    animation: fadeIn 0.85s;
     border: 1px solid grey;
 }
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
 
 .white {
     height: calc(var(--grid-height) / var(--grid-col));
