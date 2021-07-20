@@ -1,19 +1,20 @@
+//get and create dom elements
 const container = document.querySelector(".container");
 const fragment = document.createDocumentFragment();
 const gridBtn = document.createElement("button");
 const btncontainer = document.createElement("div");
 
+//gets gridcol value from css used to create grid
 let gridCol = getComputedStyle(container).getPropertyValue("--grid-col");
-console.table(gridCol);
 
+
+//btn styles
 gridBtn.textContent = "Create new Grid";
 gridBtn.style.width = "600px";
 gridBtn.style.padding = "1rem";
 gridBtn.style.marginTop = "10px";
 
-let colHeight = 600 / gridCol;
-console.log(colHeight);
-
+//generates divs in a square using value from css
 generateGrid = () => {
   for (let col = 0; col < gridCol; col++) {
     for (let row = 0; row < gridCol; row++) {
@@ -28,7 +29,8 @@ generateGrid = () => {
   }
 };
 
-let userCols = gridBtn.addEventListener("click", () => {
+//lets user choose size of grid, by clearing container and generating using user input
+gridBtn.addEventListener("click", () => {
   chooseCols = () => {
     let colAmount = prompt("Please enter grid size from 1 - 100");
     if (colAmount > 100) {
@@ -46,8 +48,8 @@ let userCols = gridBtn.addEventListener("click", () => {
   chooseCols();
 });
 
+//generates grid and appends to container element
 generateGrid();
-
 container.appendChild(fragment);
 btncontainer.appendChild(gridBtn);
 container.appendChild(btncontainer);
